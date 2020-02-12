@@ -17,7 +17,7 @@ CREATE TABLE Area (
 				   ,Descricao VARCHAR(100) NOT NULL
 			   );
 
-CREATE TABLE TipoUsuario (
+CREATE TABLE TiposUsuario (
 						  IdTipoUsuario INT PRIMARY KEY IDENTITY
 						 ,Descricao VARCHAR(100) NOT NULL
 				    );
@@ -27,7 +27,7 @@ CREATE TABLE Usuario (
 					 ,NomeUsuario VARCHAR(100) NOT NULL
 					 ,Email VARCHAR(100) NOT NULL 
 					 ,Senha VARCHAR(200) NOT NULL
-					 ,IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario) NOT NULL
+					 ,IdTipoUsuario INT FOREIGN KEY REFERENCES TiposUsuario(IdTipoUsuario) NOT NULL
 				);
 
 CREATE TABLE Medico (
@@ -35,9 +35,9 @@ CREATE TABLE Medico (
 					,CRM VARCHAR (7) NOT NULL
 					,Telefone VARCHAR(14) NOT NULL 
 					,Endereco VARCHAR(100) NOT NULL
-					,IdClinica INT FOREIGN KEY REFERENCES Clínica(IdClinica) NOT NULL
-					,IdArea INT FOREIGN KEY REFERENCES Área(IdArea) NOT NULL
-					,IdUsuario INT FOREIGN KEY REFERENCES Usuário(IdUsuario) NOT NULL
+					,IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL
+					,IdArea INT FOREIGN KEY REFERENCES Area(IdArea) NOT NULL
+					,IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL
 				);
 
 CREATE TABLE Prontuario (
@@ -46,7 +46,7 @@ CREATE TABLE Prontuario (
 						,CPF VARCHAR(11) NOT NULL
 						,Nascimento DATE NOT NULL
 						,Endereco VARCHAR(100) NOT NULL
-						,IdUsuario INT FOREIGN KEY REFERENCES Usuário(IdUsuario) NOT NULL
+						,IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL
 					);
 
 CREATE TABLE Situacao (
@@ -57,9 +57,9 @@ CREATE TABLE Situacao (
 CREATE TABLE Consulta (
 						IdConsulta INT PRIMARY KEY IDENTITY
 					   ,DataConsulta DATETIME NOT NULL
-					   ,IdSituacao INT FOREIGN KEY REFERENCES Situação(IdSituacao) NOT NULL
-					   ,IdClinica INT FOREIGN KEY REFERENCES Clínica(IdClinica) NOT NULL
-					   ,IdMedico INT FOREIGN KEY REFERENCES Médico(IdMedico) NOT NULL
-					   ,IdProntuario INT FOREIGN KEY REFERENCES Prontuário(IdProntuario) NOT NULL
+					   ,IdSituacao INT FOREIGN KEY REFERENCES Situacao(IdSituacao) NOT NULL
+					   ,IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL
+					   ,IdMedico INT FOREIGN KEY REFERENCES Medico(IdMedico) NOT NULL
+					   ,IdProntuario INT FOREIGN KEY REFERENCES Prontuario(IdProntuario) NOT NULL
 					);
 

@@ -4,11 +4,7 @@ SELECT Situacao.Descricao as Situação
 		WHEN Usuario.IdTipoUsuario = 1 THEN Usuario.NomeUsuario
 		ELSE 'N/A'
 	   END AS 'Paciente'
-	  ,CASE
-		 WHEN Usuario.IdTipoUsuario = 2 THEN Usuario.NomeUsuario
-			ELSE 'N/A'
-		END AS 'Médico'
-	  ,Medico.CRM
+	  ,Medico.CRM as 'CRM do Médico'
 	  ,Area.Descricao as Área
       ,Usuario.Email 
 	  ,Prontuario.RG
@@ -24,12 +20,12 @@ SELECT Situacao.Descricao as Situação
 FROM
 Consulta
 INNER JOIN
-Situacao ON Situação.IdSituacao = Consulta.IdSituacao
+Situacao ON Situacao.IdSituacao = Consulta.IdSituacao
 INNER JOIN
 Medico ON Medico.IdMedico = Consulta.IdSituacao 
 INNER JOIN
-Prontuario ON Prontuário.IdProntuario = Consulta.IdProntuario
+Prontuario ON Prontuario.IdProntuario = Consulta.IdProntuario
 INNER JOIN
-Usuario ON Usuário.IdUsuario = Prontuário.IdUsuario AND Usuário.IdUsuario = Médico.IdUsuario
+Usuario ON Usuario.IdUsuario = Prontuáaio.IdUsuario
 INNER JOIN
-Area ON Médico.IdArea = Área.IdArea
+Area ON Medico.IdArea = Area.IdArea
