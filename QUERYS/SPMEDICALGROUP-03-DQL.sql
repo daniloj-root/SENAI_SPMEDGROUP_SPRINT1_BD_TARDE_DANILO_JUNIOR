@@ -22,10 +22,10 @@ Consulta
 INNER JOIN
 Situacao ON Situacao.IdSituacao = Consulta.IdSituacao
 INNER JOIN
-Medico ON Medico.IdMedico = Consulta.IdSituacao 
+Medico ON Medico.IdMedico = Consulta.IdMedico 
 INNER JOIN
 Prontuario ON Prontuario.IdProntuario = Consulta.IdProntuario
 INNER JOIN
-Usuario ON Usuario.IdUsuario = Prontuáaio.IdUsuario
+Usuario ON Usuario.IdUsuario = Prontuario.IdUsuario
 INNER JOIN
 Area ON Medico.IdArea = Area.IdArea
