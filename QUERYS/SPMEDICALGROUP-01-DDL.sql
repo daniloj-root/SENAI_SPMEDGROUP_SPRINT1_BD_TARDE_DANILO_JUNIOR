@@ -9,7 +9,8 @@ CREATE TABLE Clinica (
 					 ,RazaoSocial VARCHAR (100) NOT NULL
 					 ,Telefone VARCHAR(14) NOT NULL 
 					 ,Endereco VARCHAR(100) NOT NULL
-					 ,Horario VARCHAR(9) NOT NULL
+					 ,HoraInicio VARCHAR(9) NOT NULL
+					 ,HoraFim VARCHAR(9) NOT NULL
 				 );
 
 CREATE TABLE Area (
@@ -44,6 +45,7 @@ CREATE TABLE Prontuario (
 						 IdProntuario INT PRIMARY KEY IDENTITY
 						,RG VARCHAR(9) NOT NULL
 						,CPF VARCHAR(11) NOT NULL
+						,Telefone VARCHAR(15)
 						,Nascimento DATE NOT NULL
 						,Endereco VARCHAR(100) NOT NULL
 						,IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL
@@ -57,7 +59,7 @@ CREATE TABLE Situacao (
 CREATE TABLE Consulta (
 						IdConsulta INT PRIMARY KEY IDENTITY
 					   ,DataConsulta DATETIME NOT NULL
-					   ,IdSituacao INT FOREIGN KEY REFERENCES Situacao(IdSituacao) NOT NULL
+					   ,IdSituacao INT FOREIGN KEY REFERENCES Situacao(IdSituacao) DEFAULT (1)
 					   ,IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL
 					   ,IdMedico INT FOREIGN KEY REFERENCES Medico(IdMedico) NOT NULL
 					   ,IdProntuario INT FOREIGN KEY REFERENCES Prontuario(IdProntuario) NOT NULL
