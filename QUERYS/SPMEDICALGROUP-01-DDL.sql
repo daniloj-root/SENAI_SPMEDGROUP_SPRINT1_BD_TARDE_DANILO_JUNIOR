@@ -7,7 +7,7 @@ CREATE TABLE Clinica (
 				      IdClinica INT PRIMARY KEY IDENTITY
 					 ,NomeFantasia VARCHAR(100) NOT NULL
 					 ,RazaoSocial VARCHAR (100) NOT NULL
-					 ,Telefone VARCHAR(14) NOT NULL 
+					 ,Telefone VARCHAR(15) NOT NULL 
 					 ,Endereco VARCHAR(100) NOT NULL
 					 ,HoraInicio VARCHAR(9) NOT NULL
 					 ,HoraFim VARCHAR(9) NOT NULL
@@ -34,7 +34,7 @@ CREATE TABLE Usuario (
 CREATE TABLE Medico (
 					 IdMedico INT PRIMARY KEY IDENTITY
 					,CRM VARCHAR (7) NOT NULL
-					,Telefone VARCHAR(14) NOT NULL 
+					,Telefone VARCHAR(15) NOT NULL 
 					,Endereco VARCHAR(100) NOT NULL
 					,IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL
 					,IdArea INT FOREIGN KEY REFERENCES Area(IdArea) NOT NULL
