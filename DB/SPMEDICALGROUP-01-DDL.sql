@@ -17,7 +17,7 @@ CREATE TABLE Clinica (
 				      IdClinica INT PRIMARY KEY IDENTITY
 					 ,NomeFantasia VARCHAR(100) NOT NULL
 					 ,RazaoSocial VARCHAR (100) NOT NULL
-					 ,Telefone VARCHAR(15) NOT NULL 
+					 ,IdTelefone VARCHAR(15) NOT NULL 
 					 ,IdEndereco INT FOREIGN KEY REFERENCES Endereco(IdEndereco)
 					 ,HoraInicio VARCHAR(9) NOT NULL
 					 ,HoraFim VARCHAR(9) NOT NULL
@@ -36,7 +36,7 @@ CREATE TABLE TiposUsuario (
 CREATE TABLE Usuario (
 					  IdUsuario INT PRIMARY KEY IDENTITY
 					 ,NomeUsuario VARCHAR(100) NOT NULL
-					 ,Email VARCHAR(100) NOT NULL 
+					 ,Email VARCHAR(100) NOT NULL
 					 ,Senha VARCHAR(200) NOT NULL
 					 ,IdTipoUsuario INT FOREIGN KEY REFERENCES TiposUsuario(IdTipoUsuario) NOT NULL
 				);
@@ -53,8 +53,8 @@ CREATE TABLE Medico (
 
 CREATE TABLE Prontuario (
 						 IdProntuario INT PRIMARY KEY IDENTITY
-						,RG VARCHAR(9) UNIQUE NOT NULL
-						,CPF VARCHAR(11) UNIQUE NOT NULL
+						,RG VARCHAR(12) UNIQUE NOT NULL
+						,CPF VARCHAR(14) UNIQUE NOT NULL
 						,Nascimento DATE NOT NULL
 						,IdTelefone INT FOREIGN KEY REFERENCES Telefone(IdTelefone)
 						,IdEndereco INT FOREIGN KEY REFERENCES Endereco(IdEndereco)
@@ -69,8 +69,9 @@ CREATE TABLE Situacao (
 CREATE TABLE Consulta (
 						IdConsulta INT PRIMARY KEY IDENTITY
 					   ,DataConsulta DATETIME NOT NULL
-					   ,IdSituacao INT FOREIGN KEY REFERENCES Situacao(IdSituacao) DEFAULT (1)
+					   ,Descricao VARCHAR(4000) NOT NULL
 					   ,IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL
 					   ,IdMedico INT FOREIGN KEY REFERENCES Medico(IdMedico) NOT NULL
 					   ,IdProntuario INT FOREIGN KEY REFERENCES Prontuario(IdProntuario) NOT NULL
+					   ,IdSituacao INT FOREIGN KEY REFERENCES Situacao(IdSituacao) DEFAULT (1)
 					);
