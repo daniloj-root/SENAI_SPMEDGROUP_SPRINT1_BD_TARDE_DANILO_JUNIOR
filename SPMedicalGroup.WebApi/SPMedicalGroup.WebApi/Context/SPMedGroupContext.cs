@@ -5,13 +5,13 @@ using SPMedicalGroup.WebApi.Domains;
 
 namespace SPMedicalGroup.WebApi.Context
 {
-    public partial class SPMedGroupContext : DbContext
+    public partial class SpMedGroupContext : DbContext
     {
-        public SPMedGroupContext()
+        public SpMedGroupContext()
         {
         }
 
-        public SPMedGroupContext(DbContextOptions<SPMedGroupContext> options)
+        public SpMedGroupContext(DbContextOptions<SpMedGroupContext> options)
             : base(options)
         {
         }

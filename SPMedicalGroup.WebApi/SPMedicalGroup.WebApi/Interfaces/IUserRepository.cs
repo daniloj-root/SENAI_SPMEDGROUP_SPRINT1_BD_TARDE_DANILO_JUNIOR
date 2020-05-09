@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace SPMedicalGroup.WebApi.Interfaces
 {
-    interface IUsuarioRepository : IGeneralRepository<Usuario>
+    internal interface IUserRepository : IAnonRepository<Usuario>
     {
-        bool VerificarPorEmailSenha(string email, string senha);
+        bool CheckIfExistsByEmailAndPassword(string email, string password);
     }
 }

@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace SPMedicalGroup.WebApi.Enums
 {
-    public enum StatusConsulta
+    public enum AppointmentStatus
     {
-        PENDENTE = 1,
-        CONFIRMADA = 2,
-        CANCELADA = 3
+        Pending = 1,
+        Confirmed = 2,
+        Cancelled = 3
     }
 }

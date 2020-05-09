@@ -10,30 +10,30 @@ using System.Threading.Tasks;
 
 namespace SPMedicalGroup.WebApi.Controllers
 {
-    public class UsuarioController : ControllerBase
+    public class UserController : ControllerBase
     {
-        private IUsuarioRepository _usuarioRepository { get; set; }
+        private IUserRepository UserRepository { get; }
 
-        public UsuarioController()
+        public UserController()
         {
-            _usuarioRepository = new UsuarioRepository();
+            UserRepository = new UserRepository();
         }
 
-        public IActionResult Login(LoginViewModel usuarioLogando)
+        public IActionResult Login(LoginViewModel loggingUser)
         {
-            if (!(_usuarioRepository.VerificarPorEmailSenha(usuarioLogando.Email, usuarioLogando.Senha)))
+            if (!(UserRepository.CheckIfExistsByEmailAndPassword(loggingUser.Email, loggingUser.Senha)))
                 return NotFound();
 
-            //TODO: Criar token JWT
+            //TODO: Create JWT Token
             return Ok();
         }
 
-        public IActionResult Listar()
+        public IActionResult ListAll()
         {
             try
             {
-                var listaItens = _usuarioRepository.Listar();
-                return Ok(listaItens);
+                var itemsList = UserRepository.ListAll();
+                return Ok(itemsList);
             }
             catch (Exception e)
             {
@@ -41,12 +41,12 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult BuscarPorId(int id)
+        public IActionResult SearchById(int id)
         {
             try
             {
-                var itemBuscado = _usuarioRepository.BuscarPorId(id);
-                return Ok(itemBuscado);
+                var searchItem = UserRepository.SearchById(id);
+                return Ok(searchItem);
             }
             catch (Exception e)
             {
@@ -54,11 +54,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Cadastrar(Usuario novoUsuario)
+        public IActionResult SignUp(Usuario newUser)
         {
             try
             {
-                _usuarioRepository.Cadastrar(novoUsuario);
+                UserRepository.SignUp(newUser);
                 return StatusCode(201);
             }
             catch (Exception e)
@@ -67,11 +67,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Atualizar(Usuario usuarioAtualizado)
+        public IActionResult Update(Usuario updatedUser)
         {
             try
             {
-                _usuarioRepository.Atualizar(usuarioAtualizado);
+                UserRepository.Update(updatedUser);
                 return StatusCode(204);
             }
             catch (Exception e)
@@ -80,11 +80,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Deletar(Usuario usuarioSelecionada)
+        public IActionResult Delete(Usuario selectedUser)
         {
             try
             {
-                _usuarioRepository.Deletar(usuarioSelecionada);
+                UserRepository.Delete(selectedUser);
                 return StatusCode(204);
             }
             catch (Exception e)

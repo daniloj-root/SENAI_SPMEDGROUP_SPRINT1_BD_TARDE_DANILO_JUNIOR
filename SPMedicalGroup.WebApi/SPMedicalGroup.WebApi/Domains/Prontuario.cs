@@ -5,8 +5,9 @@ namespace SPMedicalGroup.WebApi.Domains
 {
     public partial class Prontuario
     {
-        public Prontuario()
+        public Prontuario(int idProntuario)
         {
+            IdProntuario = idProntuario;
             Consulta = new HashSet<Consulta>();
         }
 

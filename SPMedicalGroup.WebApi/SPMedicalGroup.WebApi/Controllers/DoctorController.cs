@@ -13,21 +13,21 @@ namespace SPMedicalGroup.WebApi.Controllers
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class MedicoController : ControllerBase
+    public class DoctorController : ControllerBase
     {
-        private IGeneralRepository<Medico> _medicoRepository { get; set; } 
+        private DoctorRepository _doctorRepository { get; set; } 
 
-        public MedicoController()
+        public DoctorController()
         {
-            _medicoRepository = new MedicoRepository();
+            _doctorRepository = new DoctorRepository();
         }
 
-        public IActionResult Listar()
+        public IActionResult ListAll()
         {
             try
             {
-                var listaItens = _medicoRepository.Listar();
-                return Ok(listaItens);
+                var itemsList = _doctorRepository.ListAll();
+                return Ok(itemsList);
             }
             catch (Exception e)
             {
@@ -35,12 +35,12 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult BuscarPorId(int id)
+        public IActionResult SearchById(int id)
         {
             try
             {
-                var itemBuscado = _medicoRepository.BuscarPorId(id);
-                return Ok(itemBuscado);
+                var searchedItem = _doctorRepository.SearchById(id);
+                return Ok(searchedItem);
             }
             catch (Exception e)
             {
@@ -48,11 +48,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Cadastrar(Medico novoMedico)
+        public IActionResult SignUp(Medico updatedDoctor)
         {
             try
             {
-                _medicoRepository.Cadastrar(novoMedico);
+                _doctorRepository.SignUp(updatedDoctor);
                 return StatusCode(201);
             }
             catch (Exception e)
@@ -61,11 +61,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Atualizar(Medico medicoAtualizado)
+        public IActionResult Update(Medico updatedDoctor)
         {
             try
             {
-                _medicoRepository.Atualizar(medicoAtualizado);
+                _doctorRepository.Update(updatedDoctor);
                 return StatusCode(204);
             }
             catch (Exception e)
@@ -74,11 +74,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Deletar(Medico medicoSelecionada)
+        public IActionResult Delete(Medico selectedDoctor)
         {
             try
             {
-                _medicoRepository.Deletar(medicoSelecionada);
+                _doctorRepository.Delete(selectedDoctor);
                 return StatusCode(204);
             }
             catch (Exception e)

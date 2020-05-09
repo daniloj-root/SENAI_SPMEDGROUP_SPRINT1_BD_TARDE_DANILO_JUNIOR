@@ -13,21 +13,21 @@ namespace SPMedicalGroup.WebApi.Controllers
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
-    public class ConsultaController : ControllerBase
+    public class AppointmentController : ControllerBase
     {
-        private IConsultaRepository _consultaRepository;
+        private readonly IAppointmentRepository _appointmentRepository;
         
-        public ConsultaController()
+        public AppointmentController()
         {
-            _consultaRepository = new ConsultaRepository();
+            _appointmentRepository = new AppointmentRepository();
         }
 
-        public IActionResult Listar()
+        public IActionResult ListAll()
         {
             try
             {
-                var listaItens = _consultaRepository.Listar();
-                return Ok(listaItens);
+                var itemsList = _appointmentRepository.ListAll();
+                return Ok(itemsList);
             }
             catch (Exception e)
             {
@@ -35,11 +35,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult BuscarPorId(int id)
+        public IActionResult SearchById(int id)
         {
             try
             {
-                var itemBuscado = _consultaRepository.BuscarPorId(id);
+                var itemBuscado = _appointmentRepository.SearchById(id);
                 return Ok(itemBuscado);
             }
             catch (Exception e)
@@ -48,11 +48,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Cadastrar(Consulta novaConsulta)
+        public IActionResult SignUp(Consulta novaConsulta)
         {
             try
             {
-                _consultaRepository.Cadastrar(novaConsulta);
+                _appointmentRepository.SignUp(novaConsulta);
                 return StatusCode(201);
             }
             catch (Exception e)
@@ -61,11 +61,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Confirmar(Consulta novaConsulta)
+        public IActionResult Confirm(Consulta newAppointment)
         {
             try
             {
-                _consultaRepository.Confirmar(novaConsulta);
+                _appointmentRepository.Approve(newAppointment);
                 return StatusCode(204);
             }
             catch (Exception e)
@@ -74,11 +74,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Cancelar(Consulta novaConsulta)
+        public IActionResult Cancel(Consulta newAppointment)
         {
             try
             {
-                _consultaRepository.Cancelar(novaConsulta);
+                _appointmentRepository.Cancel(newAppointment);
                 return StatusCode(204);
             }
             catch (Exception e)
@@ -87,11 +87,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Atualizar(Consulta consultaAtualizado)
+        public IActionResult Update(Consulta updatedAppointment)
         {
             try
             {
-                _consultaRepository.Atualizar(consultaAtualizado);
+                _appointmentRepository.Update(updatedAppointment);
                 return StatusCode(204);
             }
             catch (Exception e)
@@ -100,11 +100,11 @@ namespace SPMedicalGroup.WebApi.Controllers
             }
         }
 
-        public IActionResult Deletar(Consulta consultaSelecionada)
+        public IActionResult Delete(Consulta selectedAppointment)
         {
             try
             {
-                _consultaRepository.Deletar(consultaSelecionada);
+                _appointmentRepository.Delete(selectedAppointment);
                 return StatusCode(204);
             }
             catch (Exception e)

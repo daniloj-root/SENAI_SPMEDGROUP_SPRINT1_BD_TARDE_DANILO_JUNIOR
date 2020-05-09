@@ -8,11 +8,11 @@ namespace SPMedicalGroup.WebApi.Models
 {
     public class RepositoryBase
     {
-        protected SPMedGroupContext dbo;
+        protected SpMedGroupContext Dbo;
 
         public RepositoryBase()
         {
-            dbo = new SPMedGroupContext();
+            Dbo = new SpMedGroupContext();
         }
     }
 }

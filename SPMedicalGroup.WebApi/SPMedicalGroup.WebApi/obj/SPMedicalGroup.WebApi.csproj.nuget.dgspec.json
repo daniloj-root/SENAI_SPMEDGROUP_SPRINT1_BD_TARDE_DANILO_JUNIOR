@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danil\\Desktop\\SENAI\\spmedgroup-sprint1-bd-tarde-danilo-j\\SPMedicalGroup.WebApi\\SPMedicalGroup.WebApi\\SPMedicalGroup.WebApi.csproj": {}
+    "/home/danilokun/Documents/senai/spmedgroup-sprint1-bd-tarde-danilo-j/SPMedicalGroup.WebApi/SPMedicalGroup.WebApi/SPMedicalGroup.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danil\\Desktop\\SENAI\\spmedgroup-sprint1-bd-tarde-danilo-j\\SPMedicalGroup.WebApi\\SPMedicalGroup.WebApi\\SPMedicalGroup.WebApi.csproj": {
+    "/home/danilokun/Documents/senai/spmedgroup-sprint1-bd-tarde-danilo-j/SPMedicalGroup.WebApi/SPMedicalGroup.WebApi/SPMedicalGroup.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danil\\Desktop\\SENAI\\spmedgroup-sprint1-bd-tarde-danilo-j\\SPMedicalGroup.WebApi\\SPMedicalGroup.WebApi\\SPMedicalGroup.WebApi.csproj",
+        "projectUniqueName": "/home/danilokun/Documents/senai/spmedgroup-sprint1-bd-tarde-danilo-j/SPMedicalGroup.WebApi/SPMedicalGroup.WebApi/SPMedicalGroup.WebApi.csproj",
         "projectName": "SPMedicalGroup.WebApi",
-        "projectPath": "C:\\Users\\danil\\Desktop\\SENAI\\spmedgroup-sprint1-bd-tarde-danilo-j\\SPMedicalGroup.WebApi\\SPMedicalGroup.WebApi\\SPMedicalGroup.WebApi.csproj",
-        "packagesPath": "C:\\Users\\danil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danil\\Desktop\\SENAI\\spmedgroup-sprint1-bd-tarde-danilo-j\\SPMedicalGroup.WebApi\\SPMedicalGroup.WebApi\\obj\\",
+        "projectPath": "/home/danilokun/Documents/senai/spmedgroup-sprint1-bd-tarde-danilo-j/SPMedicalGroup.WebApi/SPMedicalGroup.WebApi/SPMedicalGroup.WebApi.csproj",
+        "packagesPath": "/home/danilokun/.nuget/packages/",
+        "outputPath": "/home/danilokun/Documents/senai/spmedgroup-sprint1-bd-tarde-danilo-j/SPMedicalGroup.WebApi/SPMedicalGroup.WebApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\danil\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/danilokun/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -91,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace SPMedicalGroup.WebApi.Enums
 {
-    public enum TipoUsuario
+    public enum UserType
     {
-        PACIENTE = 1,
-        MEDICO = 2,
-        ADMINISTRADOR = 3
+        Patient = 1,
+        Doctor = 2,
+        Administrator = 3
     }
 }
